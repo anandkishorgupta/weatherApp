@@ -1,0 +1,7 @@
+.tab.current-tab{
+background-color: rgba(219, 226, 239, 0.5);
+border-radius: 4px;
+}
+/* .tab.current{}: This selector targets an element with both the classes "tab" and "current". It selects an element that has the class "tab" and also has the class "current" applied directly to it, without any other elements in between. For example, it would match the following HTML structure: <div class="tab current">...</div>
+
+.tab .current{}: This selector targets an element with the class "current" that is a descendant of an element with the class "tab". It selects an element that has the class "current" and is nested within an element that has the class "tab". It can target multiple levels of nesting. For example, it would match the following HTML structure: <div class="tab"><div class="current">...</div></div> */

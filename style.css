@@ -1,7 +1,223 @@
-.tab.current-tab{
-background-color: rgba(219, 226, 239, 0.5);
-border-radius: 4px;
-}
 /* .tab.current{}: This selector targets an element with both the classes "tab" and "current". It selects an element that has the class "tab" and also has the class "current" applied directly to it, without any other elements in between. For example, it would match the following HTML structure: <div class="tab current">...</div>
 
 .tab .current{}: This selector targets an element with the class "current" that is a descendant of an element with the class "tab". It selects an element that has the class "current" and is nested within an element that has the class "tab". It can target multiple levels of nesting. For example, it would match the following HTML structure: <div class="tab"><div class="current">...</div></div> */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Merriweather Sans", sans-serif;
+}
+:root {
+  --colorDark1: #112d4e;
+  --colorDark2: #3f72af;
+  --colorLight1: #dbe2ef;
+  --colorLight2: #f9f7f7;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  color: var(--colorLight2);
+  background-image: linear-gradient(160deg, #112d4e 0%, #3f72af 100%);
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px;
+}
+.tab-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 550px;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+.tab {
+  cursor: pointer;
+  font-size: 0.875rem;
+  letter-spacing: 1.75px;
+  padding: 5px 8px;
+
+}
+.tab.current-tab {
+  background-color: rgba(219, 226, 239, 0.5);
+  border-radius: 4px;
+}
+.weather-container {
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 4rem; */
+}
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #59ee0e 94%, #0000) top/9px 9px
+      no-repeat,
+    conic-gradient(#0000 30%, #59ee0e);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  animation: spinner-c7wet2 1s infinite linear;
+}
+
+@keyframes spinner-c7wet2 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+.btn{
+  /* appearance: none;
+  border: none;
+  color: white; */
+  all: unset;
+  text-transform: uppercase;
+  background-color: var(--colorDark2);
+  border-radius: 5px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 10px 30px;
+}
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.grant-location-container{
+  display: none;
+
+}
+.grant-location-container.active{
+  display: flex;
+}
+.grant-location-container img{
+  margin-bottom: 2rem;
+}
+.grant-location-container p:first-of-type{
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+.grant-location-container p:last-of-type{
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.75px;
+}
+/* loading container */
+.loading-container{
+  display: none;
+}
+.loading-container.active{
+  display: flex;
+}
+.loading-container p{
+  text-transform: uppercase;
+}
+
+
+/*  user info container */
+.user-info-container{
+  display: none;
+}
+.user-info-container.active{
+  display: flex;
+}
+.user-info-container p{
+  font-size: 1.5rem;
+  font-size: 200;
+}
+.user-info-container img{
+  width: 90px;
+  height: 90px;
+}
+.name{
+  display: flex;
+  align-items: center;
+  gap: 0 0.5rem;
+  margin-bottom: 1rem;
+
+}
+.name p{
+  font-size: 2rem;
+}
+.name img{
+  width: 30px;
+  height: 30px;
+}
+.user-info-container p[data-temp]{
+  font-size: 2.75rem;
+  font-weight: 700;
+}
+.parameter-container{
+  display: flex;
+  gap: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.parameter{
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(219, 226, 239, 0.5);
+  padding: 1rem;
+  border-radius: 5px;
+  align-items: center;
+  width: 30%;
+  max-width: 200px;
+
+}
+.parameter img{
+  width: 50px;
+  height: 50px;
+}
+.parameter p:first-of-type{
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+/* .parameter p:last-of-type{
+
+} */
+.form-container{
+  display: none;
+  width: 90%;
+  max-width: 550px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  gap: 0 10px;
+  margin-bottom: 3rem;
+}
+.form-container.active{
+  display: flex;
+}
+.form-container input{
+  width: calc(100%-80%);
+  all: unset;
+  height: 40px;
+  padding: 0 20px;
+  background-color: rgba(219, 226, 239, 0.5);
+  border-radius: 10px;
+}
+.form-container input::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+}
+.form-container input:focus{
+  outline: 3px solid  rgba(255, 255, 255, 0.7);
+}
+.form-container .btn{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  /* padding: 0 0; */
+  padding: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
